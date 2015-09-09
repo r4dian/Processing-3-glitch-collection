@@ -1,4 +1,4 @@
-source.jpg by Starla
+source.jpg by Starla Fetcho
 
 usage: 
 1) change path in mware.pde (or save image in 
