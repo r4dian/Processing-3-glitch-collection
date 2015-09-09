@@ -1,14 +1,14 @@
 /* Phaser - a processing port of audacity's Phaser.cpp 
  * Original by Nasca Octavian Paul, Dominic Mazzoni and  Vaughan Johnson
- * Port by bobvk 
- * Copyright (C) 2015 - GPL */
+ * Ported by bobvk https://github.com/bobvk/
+ * Copyright (C) 2015 - bobvk ( GPL ) */
 // usage: move mouse to change parms
 // click mouse to save result
 
 
 String inPath = "source.jpg";
 String outPath = "result.jpg";
-float samplerate = 44100.0;
+float samplerate = 1232230.0; // try setting this to 44100.0 or 2048.5 for kicks 
 
 PImage img1;
 void setup() { 
