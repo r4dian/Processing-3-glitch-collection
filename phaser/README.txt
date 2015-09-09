@@ -12,4 +12,4 @@ usage:
    sketch folder (same dimensions as input image)
 
 
-note: source.jpg found online via creative commons website, was labeled as full reuse
+note: source.jpg found online via creative commons website, was marked for full reuse
