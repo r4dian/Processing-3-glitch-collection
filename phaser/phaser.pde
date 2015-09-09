@@ -7,8 +7,8 @@
 
 
 String inPath = "source.jpg";
-String outPath = "result.jpg";
-float samplerate = 1232230.0; // try setting this to 44100.0 or 2048.5 for kicks 
+String outPath = "result.png";
+float samplerate = 92230.0; // try setting this to 44100.0 or 2048.5 for kicks 
 
 PImage img1;
 void setup() { 
