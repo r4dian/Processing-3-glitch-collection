@@ -1,4 +1,5 @@
-source.jpg found online (creative commons, full reuse)
+Phaser - a processing port of audacity's Phaser.cpp 
+
 
 usage: 
 1) change source path in phaser.pde (or overwrite source.jpg
@@ -9,3 +10,6 @@ usage:
 5) click mouse to export image
 6) open the output file named result.png in the 
    sketch folder (same dimensions as input image)
+
+
+note: source.jpg found online via creative commons website, was labeled as full reuse
