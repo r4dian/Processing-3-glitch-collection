@@ -3,9 +3,9 @@
  */
 
 PImage img;
-int barwidth = 7;
-int picspace = 1;
-int minbright = 80;
+int barwidth = 8;
+int picspace = 2;
+int minbright = 20;
 Boolean bothsides = true;
 void setup() { 
   img = loadImage("source.jpg");
@@ -16,7 +16,7 @@ void draw() {
   Boolean bw = true;
   img.loadPixels();
   for (int y = 0, h = img.height; y<h; y++) { 
-    for (int x = 0, w = img.width; x<w; x+=barwidth) { 
+    for (int x = 0, w = img.width-barwidth; x<w; x+=barwidth) { 
       for ( int i = 0; i < barwidth; i++ ) {
         int pos = x + i + y * w;
         if ( pos >= img.pixels.length ) continue;
