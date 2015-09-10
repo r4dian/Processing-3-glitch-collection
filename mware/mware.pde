@@ -3,8 +3,9 @@
  */
 
 PImage img;
-int barwidth = 6;
+int barwidth = 7;
 int picspace = 1;
+int minbright = 80;
 Boolean bothsides = true;
 void setup() { 
   img = loadImage("source.jpg");
@@ -20,12 +21,12 @@ void draw() {
         int pos = x + i + y * w;
         if ( pos >= img.pixels.length ) continue;
         int b = (int)brightness(img.pixels[pos]);
-        b=constrain(100+(int)((float)b*1.618), 0, 255);//100;
+        b=constrain(minbright+(int)((float)b*1.618), 0, 255);//100;
         color c = color(b, b, b);
         if ( bw ) img.pixels[pos] = color(0);
         else 
           if ( ( bothsides && ( i < 0 + picspace || i >= barwidth-picspace ) ) ||
-               ( !bothsides && i < 0 + picspace ) ) {
+          ( !bothsides && i < 0 + picspace ) ) {
           img.pixels[pos] = c;
         } else { 
           img.pixels[pos] = color(255);
