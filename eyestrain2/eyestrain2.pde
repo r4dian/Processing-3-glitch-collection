@@ -6,10 +6,10 @@ color basecolor = color(0, 0, 0);
 Boolean useImage = true;
 String imgpath = "source.jpg";
 String resultpath = "result.png";
-int brthres = 190; //(0-255)
+int brthres = 160; //(0-255)
 Boolean glitch = true;
 color circc, linec;
-int lineopacity = 128; //(0-255)
+int lineopacity = 178; //(0-255)
 Boolean done = false;
 void setup() { 
   if ( useImage ) { 
