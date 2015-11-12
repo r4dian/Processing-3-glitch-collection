@@ -8,6 +8,7 @@ String imgpath = "../test.jpg";
 int brthres = 130; //(0-255)
 Boolean glitch = false;
 color circc,linec;
+int lineopacity = 128; //(0-255)
 void setup() { 
   if ( useImage ) { 
     img = loadImage(imgpath);
@@ -31,7 +32,8 @@ void draw() {
   if ( useImage ) { 
     copy(img, 0, 0, img.width, img.height, 0, 0, width, height);
     filter(INVERT);
-    background(red(linec),green(linec),blue(linec),128);
+    fill(color(red(linec),green(linec),blue(linec),lineopacity));
+    rect(0,0,width,height);
   } else { 
     background(linec);
   }
