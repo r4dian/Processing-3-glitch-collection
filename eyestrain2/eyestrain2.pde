@@ -2,11 +2,11 @@ PImage img,simg;
 int w = 1024, h = 768;
 int cubesize = 40;
 float squareToLineRatio = 0.2;
-color basecolor = color(23);
-Boolean useImage = false;
+color basecolor = color(0,0,0);
+Boolean useImage = true;
 String imgpath = "../test.jpg";
 int brthres = 130; //(0-255)
-
+Boolean glitch = false;
 color circc,linec;
 void setup() { 
   if ( useImage ) { 
@@ -31,6 +31,7 @@ void draw() {
   if ( useImage ) { 
     copy(img, 0, 0, img.width, img.height, 0, 0, width, height);
     filter(INVERT);
+    background(red(linec),green(linec),blue(linec),128);
   } else { 
     background(linec);
   }
@@ -65,6 +66,7 @@ void draw() {
   }
 }
 PImage darker(PImage im) { 
+  if ( !glitch) return im;
   im.loadPixels();
   for ( int i = im.pixels.length -1; i>-1; i--) { 
     if ( brightness(im.pixels[i]) > brthres )  im.pixels[i] = basecolor;
@@ -74,6 +76,7 @@ PImage darker(PImage im) {
 }
 
 PImage lighter(PImage im) { 
+  if ( !glitch) return im;
   im.loadPixels();
   for ( int i = im.pixels.length -1; i>-1; i--) { 
     if ( brightness(im.pixels[i]) <= brthres )  im.pixels[i] = linec;
