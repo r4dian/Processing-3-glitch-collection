@@ -1,39 +1,46 @@
-PImage img,simg;
+PImage img, simg;
 int w = 1024, h = 768;
 int cubesize = 40;
 float squareToLineRatio = 0.2;
-color basecolor = color(0,0,0);
+color basecolor = color(0, 0, 0);
 Boolean useImage = true;
-String imgpath = "../test.jpg";
-int brthres = 130; //(0-255)
-Boolean glitch = false;
-color circc,linec;
+String imgpath = "source.jpg";
+String resultpath = "result.png";
+int brthres = 190; //(0-255)
+Boolean glitch = true;
+color circc, linec;
 int lineopacity = 128; //(0-255)
+Boolean done = false;
 void setup() { 
   if ( useImage ) { 
     img = loadImage(imgpath);
-    size(w,h,P2D);//img.width, img.height, P2D);
-    simg = createImage(w,h,RGB);
-    simg.copy(img,0,0,img.width,img.height,0,0,simg.width,simg.height);
+    size(w, h, P2D);//img.width, img.height, P2D);
+    simg = createImage(w, h, RGB);
+    simg.copy(img, 0, 0, img.width, img.height, 0, 0, simg.width, simg.height);
   } else { 
     size(w, h, P2D);//img.width, img.height, P2D);
   }
-  noLoop();
   noStroke();
 }
 void draw() { 
+  if ( done) { 
+    save(resultpath);
+    println("Saved "+resultpath);
+    done = false;
+    noLoop();
+  }
   int sq2linrat = (int)(1.0/squareToLineRatio);
   int sqw = cubesize, linw = sqw/sq2linrat, cirw = (int)(linw*1.5);
   int sqh = cubesize, linh = sqh/sq2linrat, cirh = (int)(linh*1.5);
   color c = basecolor;
-   circc = useImage ? color(255) : revcolor(c);//
-   linec = color( abs(red(circc)-124), abs(green(circc)-124), abs(blue(circc)-124));
+  circc = useImage ? color(255) : revcolor(c);//
+  linec = color( abs(red(circc)-124), abs(green(circc)-124), abs(blue(circc)-124));
   int cx = 0, cy = 0;
   if ( useImage ) { 
     copy(img, 0, 0, img.width, img.height, 0, 0, width, height);
     filter(INVERT);
-    fill(color(red(linec),green(linec),blue(linec),lineopacity));
-    rect(0,0,width,height);
+    fill(color(red(linec), green(linec), blue(linec), lineopacity));
+    rect(0, 0, width, height);
   } else { 
     background(linec);
   }
@@ -66,6 +73,8 @@ void draw() {
       cy += sqh + linh;
     }
   }
+  updatePixels();
+  done = true;
 }
 PImage darker(PImage im) { 
   if ( !glitch) return im;
@@ -90,3 +99,4 @@ PImage lighter(PImage im) {
 color revcolor(color c) { 
   return  color( abs(255-red(c)), abs(255-green(c)), abs(255-blue(c)));
 }
+
