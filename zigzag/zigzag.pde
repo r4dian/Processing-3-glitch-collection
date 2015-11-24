@@ -4,7 +4,7 @@
 
 PImage img;
 int barwidth = 6;
-int picspace = 1;
+int picspace = 2;
 int minbright = 20;
 int zigheight = 40;
 int dir = -1;
