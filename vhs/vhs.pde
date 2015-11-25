@@ -1,4 +1,4 @@
-/* lame vhs like effect by teisu https://github.com/bobvk/sketches/vhs/ 
+/* vhs like effect by teisu https://github.com/bobvk/sketches/vhs/ 
  click mouse to retry interlacing, 
  when interactive = true, mouseposition on click sets saturation/brightness */
 
