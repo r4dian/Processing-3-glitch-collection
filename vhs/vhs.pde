@@ -25,7 +25,7 @@ void draw() {
     btx = (int)map(mouseX,0,width,0,100);
     bty = (int)map(mouseY,0,width,0,100);
   }
-  image( basstreble(result,btx,bty) , 0, 0);
+  image( result = basstreble(result,btx,bty) , 0, 0);
   result.save("result.png");
 }
 
