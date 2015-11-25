@@ -1,9 +1,11 @@
 /* lame vhs like effect by teisu https://github.com/bobvk/sketches/vhs/ 
- click mouse to retry */
+ click mouse to retry interlacing, 
+ when interactive = true, mouseposition on click sets saturation/brightness */
 
 PImage img1,timg; 
 String txt = "it only gets worse from here";
 int virtw = 400, virth = 300;
+Boolean interactive = true;
 void setup() {
   timg = loadImage("source.jpg");
   img1 = createImage(virtw,virth,RGB);
@@ -17,7 +19,13 @@ void draw() {
   PImage hay = sinwav(hai,1+(int)(random(1)*6),1+(int)(random(1)*6));
   PImage result = createImage(timg.width,timg.height,RGB);
   result.copy(interlaceImages(hai,hay),0,0,virtw,virth,0,0,result.width,result.height);
-  image( basstreble(result,45+(int)(random(1)*10),20+(int)(random(1)*40)) , 0, 0);
+  int btx = 45+(int)(random(1)*10);
+  int bty = 20+(int)(random(1)*40);
+  if ( interactive ) { 
+    btx = (int)map(mouseX,0,width,0,100);
+    bty = (int)map(mouseY,0,width,0,100);
+  }
+  image( basstreble(result,btx,bty) , 0, 0);
   result.save("result.png");
 }
 
