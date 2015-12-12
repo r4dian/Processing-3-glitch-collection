@@ -1,8 +1,9 @@
 
 String fn = "source.jpg";
-int maxsteps = 30;
+int maxsteps = 100;
 int minsteps = 2;
 Boolean brightmode = false;
+Boolean autotoggle = false;
 PImage img;
 void setup() { 
   img = loadImage(fn);
@@ -16,6 +17,9 @@ void draw() {
   int steps;
   for ( int x = 0, w = img.width; x<w; x++) { 
     for ( int h = img.height, y = h-1; y>-1; y--) { 
+      if ( autotoggle ) { 
+        brightmode = y > h/2;
+      }
       float rat = 1.0;
       int pos = x + y * w;
       color c = img.pixels[pos];
