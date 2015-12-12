@@ -1,7 +1,8 @@
 
 String fn = "source.jpg";
-  int maxsteps = 20;
+int maxsteps = 30;
 int minsteps = 2;
+Boolean brightmode = false;
 PImage img;
 void setup() { 
   img = loadImage(fn);
@@ -19,13 +20,16 @@ void draw() {
       int pos = x + y * w;
       color c = img.pixels[pos];
       int ty = y;
-      steps = (int)map(random(1),0,1,minsteps,maxsteps);
+      steps = (int)map(random(1), 0, 1, minsteps, maxsteps);
       while ( rat > 1.0/steps*2 ) { 
         ty++;
         if ( ty >= h ) break;
         int tpos = x + ty * w;
         color tc = img.pixels[tpos];
-        if ( brightness(tc) < brightness(c) ) break;
+        if ( 
+        ( !brightmode && brightness(tc) < brightness(c) ) 
+          || ( brightmode && brightness(tc) > brightness(c) )
+          ) break;
         img.pixels[tpos] = blendC(tc, c, rat);
         rat-= rat/steps;
       }
