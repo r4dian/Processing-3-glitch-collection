@@ -1,9 +1,11 @@
 
 String fn = "source.jpg";
-int maxsteps = 100;
-int minsteps = 2;
-Boolean brightmode = false;
-Boolean autotoggle = false;
+int maxsteps = 100;  //maximum fade length in px
+int minsteps = 2;   //minimum fade length in px
+Boolean brightmode = false;  //if enabled will fade light over dark
+Boolean autotoggle = true;  //switch brightmode at pivot point
+float autotogglepivot = 0.58;  //where on the y axis (0-1) to switch
+Boolean alternatetoggle = false;
 PImage img;
 void setup() { 
   img = loadImage(fn);
@@ -17,9 +19,14 @@ void draw() {
   int steps;
   for ( int x = 0, w = img.width; x<w; x++) { 
     for ( int h = img.height, y = h-1; y>-1; y--) { 
-      if ( autotoggle ) { 
-        brightmode = y > h/2;
+      if ( alternatetoggle ) { 
+        brightmode = !brightmode;
+      } else { 
+        if ( autotoggle ) { 
+          brightmode = y > (h*autotogglepivot);
+        }
       }
+
       float rat = 1.0;
       int pos = x + y * w;
       color c = img.pixels[pos];
