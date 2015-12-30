@@ -3,8 +3,8 @@
 PImage img,map;
 int tiles = 40;
 Boolean autobg  = false;
-int mindisplace = 10, maxdisplace = 200;
-int minrotate = -3, maxrotate = 10;
+int mindisplace = 10, maxdisplace = 150;
+int minrotate = -3, maxrotate = 30;
 int blendmode = LIGHTEST;
 void setup() { 
   PImage _img = loadImage("source.jpg");
