@@ -17,8 +17,10 @@ void setup() {
 void draw() { 
   int baseh = (int)(cubetex.height/3);
   equitex = cubemapped(cubetex, baseh*2, baseh);
-
+  equitex.save("result.png");
+  println("Saved result.png");
   image(equitex, 0, 0);
+  
 }
 PImage loadCube(String basename) { 
   PImage ptop, pleft, pright, pbottom, pfront, pbehind; 
