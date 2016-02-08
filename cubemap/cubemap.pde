@@ -1,3 +1,5 @@
+/* cubemap.pde by Teisu */
+
 String mapname = "cubemapped";
 String baseString = "garden.png";
 Boolean createMap = true;
