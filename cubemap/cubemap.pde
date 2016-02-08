@@ -1,15 +1,16 @@
 /* cubemap.pde by Teisu */
 
-String mapname = "cubemapped";
+String mapname = "cubemapped.jpg";
 String baseString = "garden.png";
 Boolean createMap = true;
 
 PImage cubetex, equitex;
 void setup() { 
   if ( createMap ) { 
-    cubetex = loadCube("garden.png");
+    cubetex = loadCube(baseString);
+    cubetex.save(mapname);
   } else { 
-    cubetex = loadImage("cubemapped.jpg");
+    cubetex = loadImage(mapname);
   }
   int baseh = (int)(cubetex.height/3);
   //size(cubetex.width,cubetex.height,P2D);
