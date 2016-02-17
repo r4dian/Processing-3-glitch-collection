@@ -2,15 +2,18 @@
  click mouse to retry interlacing, 
  when interactive = true, mouseposition on click sets saturation/brightness */
 
-PImage img1,timg; 
+PImage img1, timg; 
 String txt = "it only gets worse from here";
 int virtw = 400, virth = 300;
 Boolean interactive = true;
-void setup() {
+
+void settings() {
   timg = loadImage("source.jpg");
   img1 = createImage(virtw,virth,RGB);
   img1.copy(timg,0,0,timg.width,timg.height,0,0,img1.width,img1.height);
   size(timg.width, timg.height, P2D);
+}
+void setup() {
   noLoop();
 }
 
@@ -227,4 +230,3 @@ PImage basstreble(PImage img, int xp, int yp) {
 
   return result;
 }
-
