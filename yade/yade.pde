@@ -1,17 +1,20 @@
 /* yade (yet another displacement effect) by teisu */
  
-PImage img,map;
+PImage img, _img, map;
 int tiles = 40;
 Boolean autobg  = false;
 int mindisplace = 10, maxdisplace = 150;
 int minrotate = -3, maxrotate = 30;
 int blendmode = LIGHTEST;
-void setup() { 
-  PImage _img = loadImage("source.jpg");
+void settings() { 
+  _img = loadImage("source.jpg");
   map = loadImage("source.jpg");
   size(_img.width, _img.height, P3D);
-  background(!autobg ? 0 : _img.pixels[1]);
   img = _img;
+}
+
+void setup() {
+  background(!autobg ? 0 : _img.pixels[1]);
   noLoop();
 }
 void draw() { 

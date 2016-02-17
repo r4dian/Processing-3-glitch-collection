@@ -7,9 +7,12 @@ int barwidth = 6;
 int picspace = 1;
 int minbright = 50;
 Boolean bothsides = true;
-void setup() { 
+void settings() { 
   img = loadImage("source.jpg");
   size(img.width, img.height, P2D);
+}
+
+void setup() {
   noLoop();
 }
 void draw() {
@@ -42,4 +45,3 @@ void draw() {
   save("result.png");
   println("Saved result.png");
 }
-

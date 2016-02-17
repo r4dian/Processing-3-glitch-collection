@@ -6,9 +6,12 @@ PImage img1;
 int arg1 = 3; // 0-100
 int arg2 = 20; // 0-100
 
-void setup() { 
+void settings() { 
   img1 = loadImage("source.jpg");
   size(img1.width,img1.height,P2D);
+}
+
+void setup() {
   noLoop();
 }
 void draw() { 
@@ -73,5 +76,3 @@ PImage wahwah(PImage img, int xp, int yp) {
   result.updatePixels();
   return result;
 }
-
-

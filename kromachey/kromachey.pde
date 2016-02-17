@@ -2,10 +2,13 @@ PImage fgimg, bgimg, output, fgmap;
 int redmin = -1, redmax = 20;
 int greenmin = 150, greenmax = 190;
 int bluemin = 170, bluemax = 250;
-void setup() { 
+void settings() { 
   fgimg = loadImage("fg.jpg");
   bgimg = loadImage("bg.png");
-  size(bgimg.width, bgimg.height, P2D); 
+  size(bgimg.width, bgimg.height, P2D);
+}
+
+void setup() {
   noLoop();
 }
 
@@ -45,4 +48,3 @@ void mouseMoved() {
   color c = fgmap.pixels[p];
   println("R: "+(int)red(c)+", G: "+(int)green(c)+", B: "+(int)blue(c));
 }
-

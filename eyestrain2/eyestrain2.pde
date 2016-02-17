@@ -11,7 +11,7 @@ Boolean glitch = true;
 color circc, linec;
 int lineopacity = 178; //(0-255)
 Boolean done = false;
-void setup() { 
+void settings() { 
   if ( useImage ) { 
     img = loadImage(imgpath);
     size(w, h, P2D);//img.width, img.height, P2D);
@@ -20,6 +20,9 @@ void setup() {
   } else { 
     size(w, h, P2D);//img.width, img.height, P2D);
   }
+}
+
+void setup() {
   noStroke();
 }
 void draw() { 
@@ -99,4 +102,3 @@ PImage lighter(PImage im) {
 color revcolor(color c) { 
   return  color( abs(255-red(c)), abs(255-green(c)), abs(255-blue(c)));
 }
-

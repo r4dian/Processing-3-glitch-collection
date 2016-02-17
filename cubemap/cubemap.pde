@@ -5,7 +5,8 @@ String baseString = "garden.png";
 Boolean createMap = true;
 
 PImage cubetex, equitex;
-void setup() { 
+
+void settings() {
   if ( createMap ) { 
     cubetex = loadCube(baseString);
     cubetex.save(mapname);
@@ -17,6 +18,7 @@ void setup() {
   size(baseh*2, baseh, P2D); 
   noLoop();
 }
+  
 void draw() { 
   int baseh = (int)(cubetex.height/3);
   equitex = cubemapped(cubetex, baseh*2, baseh);
@@ -162,4 +164,3 @@ float getmax(float f1, float f2, float f3 ) {
   } 
   return f1;
 }
-

@@ -7,7 +7,7 @@ Boolean autotoggle = true;  //switch brightmode at pivot point
 float autotogglepivot = 0.58;  //where on the y axis (0-1) to switch
 Boolean alternatetoggle = false;
 PImage img;
-void setup() { 
+void settings() { 
   img = loadImage(fn);
   size(img.width, img.height, P2D);
   //image(img, 0, 0);
@@ -57,4 +57,3 @@ color blendC(color tc, color sc, float rat) {
   (blue(tc)*(1.0-rat))+(blue(sc)*rat)
     );
 }
-

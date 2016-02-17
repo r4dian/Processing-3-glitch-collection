@@ -6,9 +6,12 @@
 String inPath = "source.jpg";
 String outPath = "result.png";
 PImage img1;
-void setup() { 
-   img1 = loadImage(inPath); 
+void settings() { 
+  img1 = loadImage(inPath); 
   size(img1.width,img1.height,P2D);
+}
+
+void setup() {
   frameRate(4);//noLoop();
 }
 

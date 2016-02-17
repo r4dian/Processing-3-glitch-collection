@@ -4,10 +4,10 @@ PImage img;
 int dotspersize = 50;
 String sourceImage = "source.jpg";
 String resultImage = "result.png";
-void setup() { 
+void settings() { 
   img = loadImage(sourceImage);
   size(img.width, img.height, P2D);
-  noLoop();
+    noLoop();
 }
 //lol, sue me, this code could be so much more efficient
 //but it works, and its called a sketch, so fsckit
@@ -50,4 +50,3 @@ void draw() {
   save(resultImage);
   println("Saved "+resultImage);
 }
-

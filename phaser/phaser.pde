@@ -11,9 +11,12 @@ String outPath = "result.png";
 float samplerate = 92230.0; // try setting this to 44100.0 or 2048.5 for kicks 
 
 PImage img1;
-void setup() { 
+void settings() { 
   img1 = loadImage(inPath); 
   size(img1.width,img1.height,P2D);
+}
+
+void setup() {
   frameRate(4);//noLoop();
 }
 
@@ -210,4 +213,3 @@ sampleCount EffectPhaser::ProcessBlock(float **inBlock, float **outBlock, sample
 }
 
 */
-

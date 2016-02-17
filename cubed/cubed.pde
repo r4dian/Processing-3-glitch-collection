@@ -1,11 +1,14 @@
 PImage img1;
 int w, h;
 Boolean debugging = false;
-void setup() {
- background(0); 
-  img1 = loadImage("source.jpg");
 
+void settings() {
+  img1 = loadImage("source.jpg");
   size(w = img1.width, h = img1.height, P3D);
+}
+
+void setup() {
+  background(0); 
   //image(img1,0,0);
   drawpicturebox();
   noLoop();
@@ -61,4 +64,3 @@ void drawpicturebox() {
 
 
 }
-

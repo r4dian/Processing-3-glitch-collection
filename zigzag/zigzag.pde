@@ -9,9 +9,12 @@ int minbright = 20;
 int zigheight = 40;
 int dir = -1;
 Boolean bothsides = true;
-void setup() { 
+void settings() { 
   img = loadImage("source.jpg");
   size(img.width, img.height, P2D);
+}
+
+void setup() {
   noLoop();
   frameRate(1);
 }
@@ -46,4 +49,3 @@ void draw() {
   save("result.png");
   println("Saved result.png");
 }
-
