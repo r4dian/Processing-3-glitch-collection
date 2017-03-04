@@ -6,16 +6,20 @@
 String inPath = "source.jpg";
 String outPath = "result.png";
 PImage img1;
-void settings() { 
-  img1 = loadImage(inPath); 
-  size(img1.width,img1.height,P2D);
-}
 
 void setup() {
+  size(100,100,P2D);
+  img1 = loadImage(inPath); 
+  surface.setSize(img1.width,img1.height);
   frameRate(4);//noLoop();
 }
 
 void draw() { 
+  background(0);
+
+  if (frameCount == 1 ) // skip 1st frame as setSize happens NEXT frame ...
+    return;
+
   int xp = (int)map(mouseX,0,width,0,100);
   int yp = (int)map(mouseY,0,height,0,100);
   image(auEcho(img1,xp,yp),0,0);

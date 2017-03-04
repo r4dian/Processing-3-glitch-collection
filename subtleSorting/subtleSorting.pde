@@ -56,13 +56,14 @@ float getChannel(color c) {
   return channel_weight * (channel>5?255-cc:cc);
 }
 
-void settings() {
+void setup() {
+  size(100,100,P3D);
   img = loadImage(name + "." + type);
-  size(img.width,img.height,P3D);
+  surface.setSize(img.width,img.height);
+  println("christian attard, 2015 @ introwerks");
 }
 
-void setup() {
-  println("christian attard, 2015 @ introwerks");
+void draw() {
   for (int i = 0; i < img.width; i++) {
     for (int j = 0; j < img.height; j++) {
       c = i+(j*width);

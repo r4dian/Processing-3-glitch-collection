@@ -7,17 +7,20 @@ String txt = "it only gets worse from here";
 int virtw = 400, virth = 300;
 Boolean interactive = true;
 
-void settings() {
-  timg = loadImage("source.jpg");
-  img1 = createImage(virtw,virth,RGB);
-  img1.copy(timg,0,0,timg.width,timg.height,0,0,img1.width,img1.height);
-  size(timg.width, timg.height, P2D);
-}
 void setup() {
-  noLoop();
+  size(100,100,P2D);
+  surface.setResizable(true);
 }
 
 void draw() {   
+  timg = loadImage("source.jpg");
+  img1 = createImage(virtw,virth,RGB);
+  img1.copy(timg,0,0,timg.width,timg.height,0,0,img1.width,img1.height);
+  surface.setSize(timg.width, timg.height);
+
+  if (frameCount == 1 ) // skip 1st frame as setSize happens NEXT frame ...
+    return;
+
   PImage hai = new Subtitle(txt).run(img1);
   PImage hay = sinwav(hai,1+(int)(random(1)*6),1+(int)(random(1)*6));
   PImage result = createImage(timg.width,timg.height,RGB);
@@ -30,6 +33,7 @@ void draw() {
   }
   image( result = basstreble(result,btx,bty) , 0, 0);
   result.save("result.png");
+  exit();
 }
 
 void mouseClicked() { 

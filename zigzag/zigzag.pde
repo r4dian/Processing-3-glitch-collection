@@ -9,16 +9,20 @@ int minbright = 20;
 int zigheight = 40;
 int dir = -1;
 Boolean bothsides = true;
-void settings() { 
-  img = loadImage("source.jpg");
-  size(img.width, img.height, P2D);
-}
 
 void setup() {
-  noLoop();
+  size(100,100,P3D);
+  surface.setResizable(true);
   frameRate(1);
 }
+
 void draw() {
+  img = loadImage("source.jpg");
+  surface.setSize(img.width, img.height);
+
+  if (frameCount == 1 ) // skip 1st frame as setSize happens NEXT frame ...
+    return;
+
   Boolean bw = true;
   img.loadPixels();
   for (int y = 0, h = img.height; y<h; y++) { 
@@ -48,4 +52,5 @@ void draw() {
   image(img, 0, 0);
   save("result.png");
   println("Saved result.png");
+  exit();
 }

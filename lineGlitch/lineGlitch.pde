@@ -15,13 +15,15 @@ final static int TOP = 1;
 int mode = TOP; // glitch mode: LEFT, TOP.
 float amt = 20.0; // threshold amount.
 
-void settings() {
+void setup() {
+  size(100,100,P3D);
   img = loadImage(name + "." + type);
-  size(img.width,img.height,P3D);
+  surface.setSize(img.width,img.height);
+  println("christian attard, 2015 @ introwerks");
 }
 
-void setup() {
-  println("christian attard, 2015 @ introwerks");
+void draw() {
+  background(0);
 
   img.loadPixels();
   for (int i = 0; i < img.width-1; i++) {

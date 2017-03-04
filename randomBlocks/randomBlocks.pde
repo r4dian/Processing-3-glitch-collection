@@ -10,14 +10,14 @@ int count = int(random(666));
 int size =20; //block size
 
 
-void settings() {
+void setup() {
+  size(100,100,P3D);
   img = loadImage(name + "." + type);
-  size(img.width,img.height,P3D);
+  surface.setSize(img.width,img.height);
+  println("christian attard, 2015 @ introwerks");
 }
 
-void setup() {
-  println("christian attard, 2015 @ introwerks");
-
+void draw (){  
   img.loadPixels();
   for (int i = 0; i < img.width; i+=size) {
     for (int j = 0; j < img.height; j+=size) {

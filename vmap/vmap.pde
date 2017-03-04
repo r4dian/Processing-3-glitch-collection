@@ -79,16 +79,19 @@ float getChannel(color c) {
   return channel_weight * (channel>5?255-cc:cc);
 }
 
-void settings() {
-  img = loadImage(name + "." + type);
-  size(img.width,img.height,P3D);
-}
-
 void setup() {
   println("christian attard, 2015 @ introwerks");
+  size(100,100,P3D);
+  surface.setResizable(true);
 }
 
 void draw() {
+  img = loadImage(name + "." + type);
+  surface.setSize(img.width,img.height);
+
+  if (frameCount == 1 ) // skip 1st frame as setSize happens NEXT frame ...
+    return;
+
   background(0);
   lights();
   for (int i =0; i<img.width; i+=vSize) {

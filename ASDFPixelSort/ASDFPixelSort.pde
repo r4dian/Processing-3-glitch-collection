@@ -22,7 +22,9 @@ int column = 0;
 boolean saved = false;
 boolean vert = true;
 boolean hori = true;
+
 void setup() {
+  size(100,100);
   img = loadImage(imgFileName+"."+fileType);
   surface.setSize(img.width,img.height);
   image(img, 0, 0);
@@ -31,7 +33,7 @@ void setup() {
 
 void draw() {
   if(vert == true){
-  while(column < width-1) {
+  while(column < img.width-1) {
     img.loadPixels(); 
     sortColumn();
     column++;
@@ -39,7 +41,7 @@ void draw() {
   }
   }
   if(hori == true){
-  while(row < height-1) {
+  while(row < img.height-1) {
     img.loadPixels(); 
     sortRow();
     row++;

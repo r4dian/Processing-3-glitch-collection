@@ -11,19 +11,18 @@ Boolean glitch = true;
 color circc, linec;
 int lineopacity = 178; //(0-255)
 Boolean done = false;
-void settings() { 
+
+void setup() {
+  size(100,100,P2D);
+  noStroke();
   if ( useImage ) { 
     img = loadImage(imgpath);
-    size(w, h, P2D);//img.width, img.height, P2D);
+    surface.setSize(w, h);//img.width, img.height);
     simg = createImage(w, h, RGB);
     simg.copy(img, 0, 0, img.width, img.height, 0, 0, simg.width, simg.height);
   } else { 
-    size(w, h, P2D);//img.width, img.height, P2D);
+    surface.setSize(w, h);//img.width, img.height);
   }
-}
-
-void setup() {
-  noStroke();
 }
 void draw() { 
   if ( done) { 

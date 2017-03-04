@@ -2,14 +2,12 @@ PImage fgimg, bgimg, output, fgmap;
 int redmin = -1, redmax = 20;
 int greenmin = 150, greenmax = 190;
 int bluemin = 170, bluemax = 250;
-void settings() { 
-  fgimg = loadImage("fg.jpg");
-  bgimg = loadImage("bg.png");
-  size(bgimg.width, bgimg.height, P2D);
-}
 
 void setup() {
-  noLoop();
+  size(100,100,P3D);
+  fgimg = loadImage("fg.jpg");
+  bgimg = loadImage("bg.png");
+  surface.setSize(bgimg.width,bgimg.height);
 }
 
 Boolean iscromcol(color c) { 
@@ -21,6 +19,7 @@ Boolean iscromcol(color c) {
     red > redmin && red < redmax;
 }
 void draw() { 
+  background(0);
   fgimg.loadPixels();
   bgimg.loadPixels();
   output = createImage(bgimg.width, bgimg.height, RGB);
@@ -41,6 +40,7 @@ void draw() {
   output.updatePixels();
   image(output, 0, 0);
   output.save("result.png");
+  exit();
 }
 
 void mouseMoved() { 

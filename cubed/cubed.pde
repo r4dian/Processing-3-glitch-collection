@@ -8,14 +8,18 @@ void settings() {
 }
 
 void setup() {
+  size(100,100,P3D);
   background(0); 
   //image(img1,0,0);
-  drawpicturebox();
-  noLoop();
+  img1 = loadImage("source.jpg");
+  surface.setSize(w = img1.width, h = img1.height);
 }
 
 void draw() 
 { 
+  background(0);
+  drawpicturebox();
+
   //  rotateY(radians(90));
   int x = (int)map(mouseX,0,width,0,img1.width);
   int y = (int)map(mouseY,0,height,0,img1.height);
@@ -24,6 +28,7 @@ void draw()
   //stroke(img1.pixels[p]);
   
   //line(mouseX, mouseY, pmouseX, pmouseY);
+  exit();
 }
 void drawpicturebox() { 
  if (debugging) translate(0, 0, -h);

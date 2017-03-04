@@ -13,17 +13,15 @@ float degrX = 30; //rotateX
 float degrY = 12; //rotateY
 float degrZ = 0; //rotateZ
 PImage img;
-void settings() { 
+
+void setup() {
+  size(100,100,P3D);
   PImage _img = loadImage(imgPath);
   img = createImage((int)(_img.width*scale), (int)(_img.height*scale), RGB);
   img.copy(_img, 0, 0, _img.width, _img.height, 0, 0, img.width, img.height);
-  size(w+(2*margin), h+(2*margin), P3D);
+  surface.setSize(w+(2*margin), h+(2*margin));
   if ( autoColor ) 
     bgclr = img.pixels[img.pixels.length-1];
-}
-
-void setup() {
-  noLoop();
 }
 
 void draw() { 
@@ -46,6 +44,7 @@ void draw() {
     }
   }
   save(resultPath);
+  exit();
 }
 
 float opax = 127;

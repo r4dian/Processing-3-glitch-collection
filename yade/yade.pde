@@ -6,18 +6,22 @@ Boolean autobg  = false;
 int mindisplace = 10, maxdisplace = 150;
 int minrotate = -3, maxrotate = 30;
 int blendmode = LIGHTEST;
-void settings() { 
-  _img = loadImage("source.jpg");
-  map = loadImage("source.jpg");
-  size(_img.width, _img.height, P3D);
-  img = _img;
-}
 
 void setup() {
-  background(!autobg ? 0 : _img.pixels[1]);
-  noLoop();
+  size(100,100,P3D);
+  surface.setResizable(true);
 }
+
 void draw() { 
+  _img = loadImage("source.jpg");
+  map = loadImage("source.jpg");
+  surface.setSize(_img.width, _img.height);
+  img = _img;
+  background(!autobg ? 0 : _img.pixels[1]);
+
+  if (frameCount == 1 ) // skip 1st frame as setSize happens NEXT frame ...
+    return;
+
   float x, y, h, w;
   float tw = (float)img.width/(float)tiles;
   float th = (float)img.height/(float)tiles;
@@ -37,6 +41,7 @@ void draw() {
     }
   }
   save("result.jpg");
+  exit();
 } 
 
 int getz(float x, float y) { 

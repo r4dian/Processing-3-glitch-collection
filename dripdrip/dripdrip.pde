@@ -7,14 +7,18 @@ Boolean autotoggle = true;  //switch brightmode at pivot point
 float autotogglepivot = 0.58;  //where on the y axis (0-1) to switch
 Boolean alternatetoggle = false;
 PImage img;
-void settings() { 
+void setup() {
+  size(100,100,P2D);
   img = loadImage(fn);
-  size(img.width, img.height, P2D);
-  //image(img, 0, 0);
-  noLoop();
+  surface.setSize(img.width,img.height);
 }
 
 void draw() { 
+  background(0);
+
+  if (frameCount == 1 ) // skip 1st frame as setSize happens NEXT frame ...
+    return;
+
   img.loadPixels();
   int steps;
   for ( int x = 0, w = img.width; x<w; x++) { 
@@ -49,6 +53,7 @@ void draw() {
   img.updatePixels();
   image(img, 0, 0);
   save("result.png");
+  exit();
 }
 color blendC(color tc, color sc, float rat) { 
   return color(

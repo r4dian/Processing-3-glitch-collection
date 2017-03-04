@@ -10,12 +10,15 @@ int count = int(random(666));
 int v;
 int t;
 
-void settings() {
-  img = loadImage(name + "." + type);
-  size(img.width,img.height,P3D);
-}
 void setup() {
+  size(100,100,P3D);
   println("christian attard, 2015 @ introwerks");
+  img = loadImage(name + "." + type);
+  surface.setSize(img.width,img.height);
+}
+
+void draw() {
+  background(0);
 
   img.loadPixels();
   for (int i = 0; i < img.width-1; i++) {

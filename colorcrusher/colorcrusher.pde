@@ -11,13 +11,18 @@ String type = "jpg"; //file type
 int count = int(random(666));
 
 
-void settings() {
-  img = loadImage(name + "." + type);
-  size(img.width, img.height);
-}
-
 void setup() {
   println("christian attard, 2015 @ introwerks");
+  img = loadImage(name + "." + type);
+  surface.setSize(img.width,img.height);
+}
+
+void draw() {
+  background(0);
+
+  if (frameCount == 1 ) // skip 1st frame as setSize happens NEXT frame ...
+    return;
+
   image(img, 0, 0);
 
   loadPixels();

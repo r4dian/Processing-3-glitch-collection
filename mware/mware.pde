@@ -7,14 +7,13 @@ int barwidth = 6;
 int picspace = 1;
 int minbright = 50;
 Boolean bothsides = true;
-void settings() { 
-  img = loadImage("source.jpg");
-  size(img.width, img.height, P2D);
-}
 
 void setup() {
-  noLoop();
+  size(100,100,P3D);
+  img = loadImage("source.jpg");
+  surface.setSize(img.width, img.height);
 }
+
 void draw() {
   Boolean bw = true;
   img.loadPixels();
@@ -44,4 +43,5 @@ void draw() {
   image(img, 0, 0);
   save("result.png");
   println("Saved result.png");
+  exit();
 }

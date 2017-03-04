@@ -4,6 +4,8 @@ String mapname = "cubemapped.jpg";
 String baseString = "garden.png";
 Boolean createMap = true;
 
+int baseh;
+
 PImage cubetex, equitex;
 
 void settings() {
@@ -15,17 +17,20 @@ void settings() {
   }
   int baseh = (int)(cubetex.height/3);
   //size(cubetex.width,cubetex.height,P2D);
-  size(baseh*2, baseh, P2D); 
-  noLoop();
 }
-  
+
+void setup(){
+  size(100,100, P2D); 
+  baseh = (int)(cubetex.height/3);
+  surface.setSize(baseh*2, baseh); 
+}  
+
 void draw() { 
-  int baseh = (int)(cubetex.height/3);
   equitex = cubemapped(cubetex, baseh*2, baseh);
   equitex.save("result.png");
   println("Saved result.png");
   image(equitex, 0, 0);
-  
+  exit();
 }
 PImage loadCube(String basename) { 
   PImage ptop, pleft, pright, pbottom, pfront, pbehind; 
