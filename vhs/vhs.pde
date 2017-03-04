@@ -28,7 +28,9 @@ void draw() {
   }
   image( result = basstreble(result,btx,bty) , 0, 0);
   result.save("result.png");
-  exit();
+  if( !interactive ){
+    exit();
+  }
 }
 
 void mouseClicked() { 
