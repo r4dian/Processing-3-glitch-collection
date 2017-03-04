@@ -16,20 +16,14 @@ int zoom = 100; // zoom image
 
 void setup() {
   size(100,100,P3D);
-  surface.setResizable(true);
-  frameLimit++; // (since the 1st frame is 1 rather than 0, we also offset by one.)
+  img = loadImage(name + "." + type);
+  surface.setSize(img.width,img.height);
+  println("christian attard, 2015 @ introwerks");
 }
 
 void draw() {
-  img = loadImage(name + "." + type);
-  surface.setSize(img.width,img.height);
   background(0);
-  println("christian attard, 2015 @ introwerks");
 
-  /* wait until the next frame so the setSize we just did is applied
-   * otherwise you just get the black bg with a 100*100 image stamped on it.
-   * Great.
-   */
   if (frameCount > 1 && frameCount <= frameLimit ){
 
     for (int i = 0; i < img.width; i+=space) {

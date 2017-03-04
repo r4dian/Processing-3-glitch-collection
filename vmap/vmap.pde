@@ -80,19 +80,14 @@ float getChannel(color c) {
 }
 
 void setup() {
-  println("christian attard, 2015 @ introwerks");
   size(100,100,P3D);
-  surface.setResizable(true);
+  img = loadImage(name + "." + type);
+  surface.setSize(img.width,img.height);
+  println("christian attard, 2015 @ introwerks");
 }
 
 void draw() {
-  img = loadImage(name + "." + type);
-  surface.setSize(img.width,img.height);
-
-  if (frameCount == 1 ) // skip 1st frame as setSize happens NEXT frame ...
-    return;
-
-  background(0);
+ background(0);
   lights();
   for (int i =0; i<img.width; i+=vSize) {
     for (int j =0; j<img.height; j+=vSize) {

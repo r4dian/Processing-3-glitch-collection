@@ -3,7 +3,7 @@
  */
 
 PImage img;
-int barwidth = 6;
+int barwidth = 5;
 int picspace = 2;
 int minbright = 20;
 int zigheight = 40;
@@ -12,17 +12,12 @@ Boolean bothsides = true;
 
 void setup() {
   size(100,100,P3D);
-  surface.setResizable(true);
+  img = loadImage("source.jpg");
+  surface.setSize(img.width, img.height);
   frameRate(1);
 }
 
 void draw() {
-  img = loadImage("source.jpg");
-  surface.setSize(img.width, img.height);
-
-  if (frameCount == 1 ) // skip 1st frame as setSize happens NEXT frame ...
-    return;
-
   Boolean bw = true;
   img.loadPixels();
   for (int y = 0, h = img.height; y<h; y++) { 

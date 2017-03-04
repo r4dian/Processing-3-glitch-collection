@@ -8,22 +8,17 @@ int arg2 = 20; // 0-100
 
 void setup() {
   size(100,100,P2D);
-  surface.setResizable(true);
-}
-
-void draw() { 
   img1 = loadImage("source.jpg");
   surface.setSize(img1.width,img1.height);
+}
 
-  if (frameCount == 1 ) // skip 1st frame as setSize happens NEXT frame ...
-    return;
 
+void draw() { 
   background(0);
   image(wahwah(img1,arg1,arg2),0,0);
   save("result.png");
   exit();
 }
-
 
 
 PImage wahwah(PImage img, int xp, int yp) { 
